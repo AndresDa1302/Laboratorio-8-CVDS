@@ -5,9 +5,8 @@ import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
 
 public interface ItemDAO {
 
-   //public void save(Item it) throws PersistenceException;
-   //public void save(Item it) throws PersistenceException;
+   public void save(Item it) throws PersistenceException;
 
-   //public Item load(int id) throws PersistenceException;
+   public Item load(int id) throws PersistenceException;
 
 }
