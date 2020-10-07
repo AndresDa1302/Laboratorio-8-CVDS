@@ -25,5 +25,4 @@ public class MyBATISItemRentadoDAO implements ItemRentadoDAO{
     public ItemRentado consultarItemRentado(int iditem) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
