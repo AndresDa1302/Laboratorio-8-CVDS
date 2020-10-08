@@ -75,11 +75,11 @@ public class MyBatisExample {
         //Crear el mapper y usarlo: 
         //ClienteMapper cm=sqlss.getMapper(ClienteMapper.class)
         //cm...
-        ItemMapper im = sqlss.getMapper(ItemMapper.class);
+        //ItemMapper im = sqlss.getMapper(ItemMapper.class);
         
-        TipoItem tip =new TipoItem(2160666, "tecnologia");
-        Item lap = new Item(tip,2160666,"Laptop1","Laptop1 pro", new SimpleDateFormat("yyyy/MM/dd").parse("2020/10/02"),100,"efectivo", "abc");
-        im.insertarItem(lap);
+        //TipoItem tip =new TipoItem(2160666, "tecnologia");
+        //Item lap = new Item(tip,2160666,"Laptop1","Laptop1 pro", new SimpleDateFormat("yyyy/MM/dd").parse("2020/10/02"),100,"efectivo", "abc");
+        //im.insertarItem(lap);
         
         //System.out.println(im.consultarItems());
         //System.out.println(im.consultarItem(2160666));
