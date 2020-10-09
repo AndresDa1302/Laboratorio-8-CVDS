@@ -61,11 +61,12 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public Item consultarItem(int id) throws ExcepcionServiciosAlquiler {
-       try {
-           return itemDAO.load(id);
-       } catch (PersistenceException ex) {
-           throw new ExcepcionServiciosAlquiler("Error al consultar el item "+id,ex);
-       }
+       try{
+            return itemDAO.load(id);
+        }
+        catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al consultar el item "+id, ex);
+        }
    }
 
    @Override
@@ -95,7 +96,11 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try {
+           clienteDAO.save(c);
+       } catch (PersistenceException ex) {
+           throw new ExcepcionServiciosAlquiler("Error al registrar cliente",ex);
+       }
    }
 
    @Override

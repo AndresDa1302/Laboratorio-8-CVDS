@@ -5,6 +5,7 @@
  */
 package edu.eci.cvds.samples.services.client;
 
+import edu.eci.cvds.samples.entities.Cliente;
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquilerFactory;
 
@@ -14,6 +15,10 @@ import edu.eci.cvds.samples.services.ServiciosAlquilerFactory;
  */
 public class Main {
      public static void main(String args[]) throws ExcepcionServiciosAlquiler{
-         System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().consultarCliente(2160666));
+         Cliente cl;
+         cl = new Cliente("Andres Davila",(int) 01010000,"3197118807", "Calle 54 #24A-30 13-201","flash@gmail.com");
+         ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().registrarCliente(cl);
+         //System.out.println(ServiciosAlquilerFactory.getInstance().getServiciosAlquiler().registrarCliente(cl));
+         //Cliente(String nombre, long documento, String telefono, String direccion, String email)
      }
 }
