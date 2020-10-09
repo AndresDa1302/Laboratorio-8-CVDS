@@ -26,11 +26,14 @@ public interface ClienteMapper {
             @Param("idit")int idit, 
             @Param("fechai")Date fechainicio,
             @Param("fechaf")Date fechafin);
+    
 
     /**
      * Consultar todos los clientes
      * @return 
      */
     public List<Cliente> consultarClientes();
+    
+    public void registrarCliente(@Param("cl")Cliente cl);
     
 }

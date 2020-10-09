@@ -71,7 +71,7 @@ public class MyBatisExample {
         //System.out.println(cm.consultarClientes());
         
         //cm.agregarItemRentadoACliente(2160666,4,new SimpleDateFormat("yyyy/MM/dd").parse("2020/10/02"),new SimpleDateFormat("yyyy/MM/dd").parse("2020/10/03"));
-        System.out.println(cm.consultarCliente(2160666));
+        System.out.println(cm.consultarCliente(100111));
         //Crear el mapper y usarlo: 
         //ClienteMapper cm=sqlss.getMapper(ClienteMapper.class)
         //cm...

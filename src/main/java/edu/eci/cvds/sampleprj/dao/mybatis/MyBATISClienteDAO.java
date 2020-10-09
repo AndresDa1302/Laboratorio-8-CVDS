@@ -5,9 +5,13 @@
  */
 package edu.eci.cvds.sampleprj.dao.mybatis;
 
+import com.google.inject.Inject;
 import edu.eci.cvds.sampleprj.dao.ClienteDAO;
 import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.cvds.samples.entities.Cliente;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,14 +19,33 @@ import edu.eci.cvds.samples.entities.Cliente;
  */
 public class MyBATISClienteDAO implements ClienteDAO{
 
+    @Inject
+    private ClienteMapper ClienteMapper; 
+    
     @Override
-    public void save(Cliente cli) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save(Cliente cl) throws PersistenceException {
+        try{
+            ClienteMapper.registrarCliente(cl);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al registrar "+ cl.toString(),e);
+        }  
     }
 
     @Override
     public Cliente load(int doc) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            return ClienteMapper.consultarCliente(doc);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar cliente",e);
+        }  
     }
-    
+
+    @Override
+    public List<Cliente> consultarClientes() throws PersistenceException {
+        try{
+            return ClienteMapper.consultarClientes();
+        }catch(org.apache.ibatis.exceptions.PersistenceException e){
+             throw new PersistenceException("Error al consultar los Clientes ",e);
+        }
+    }
 }

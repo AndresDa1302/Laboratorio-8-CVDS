@@ -18,6 +18,7 @@ import java.util.Optional;
 import static com.google.inject.Guice.createInjector;
 import edu.eci.cvds.sampleprj.dao.mybatis.MyBATISItemRentadoDAO;
 import edu.eci.cvds.samples.services.impl.ServiciosAlquilerImpl;
+import edu.eci.cvds.samples.services.impl.ServiciosAlquilerItemsStub;
 
 
 public class ServiciosAlquilerFactory {
