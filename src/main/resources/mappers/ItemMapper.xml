@@ -15,6 +15,12 @@
         <result property="genero" column="genero"/>
         <association property="tipo" javaType="TipoItem" columnPrefix="ti_" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult"></association>
     </resultMap>
+    
+    <insert id="insertarItem" parameterType="map">
+        insert into VI_ITEMS (id,nombre,descripcion,fechalanzamiento,tarifaxdia,formatorenta,genero,TIPOITEM_id)
+        values (#{item.id},#{item.nombre},#{item.descripcion},#{item.fechaLanzamiento},#{item.tarifaxDia},#{item.formatoRenta},#{item.genero},#{item.tipo.id})
+    </insert>
+    
     <select parameterType="map" id="consultarItems" resultMap="ItemResult">
         select 
 	i.id,
@@ -47,7 +53,7 @@
 	FROM VI_ITEMS as i
 	left join VI_TIPOITEM as ti on i.TIPOITEM_id = ti.id where i.id = #{itid}
     </select>
-    <select parameterType="map" id="consultarDisponibles" resultMap="ItemResult">
+    <select parameterType="map" id="consultarItemsDisponibles" resultMap="ItemResult">
         
         SELECT
             r.id,
