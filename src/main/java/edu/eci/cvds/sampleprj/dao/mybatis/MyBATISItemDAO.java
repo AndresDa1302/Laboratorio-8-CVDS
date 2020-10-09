@@ -10,6 +10,7 @@ import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper;
 import edu.eci.cvds.samples.entities.TipoItem;
 import java.sql.SQLException;
 import java.util.List;
+import org.mybatis.guice.transactional.Transactional;
 
 public class MyBATISItemDAO implements ItemDAO{
 
@@ -17,6 +18,7 @@ public class MyBATISItemDAO implements ItemDAO{
   private ItemMapper itemMapper; 
 
   @Override
+  @Transactional
   public void save(Item it) throws PersistenceException{
   try{
       itemMapper.insertarItem(it);
