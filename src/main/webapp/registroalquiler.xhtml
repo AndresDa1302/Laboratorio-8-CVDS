@@ -31,8 +31,8 @@ and open the template in the editor.
                 <p:inputText id="Codigo" type="long" binding="#{cod}" />
                 <h:outputLabel value="Numero de dias"/>
                 <p:inputText id="Dias" type="int" binding="#{dias}"/>
-                <p:commandButton update="formAlquiler" class="Button" value="Consultar Multa" actionListener="#{Cliente.consultarCostoAlquiler(cod.value, dias.value)}"/>
-                <!<!-- Toca hacer consultar la multa antes de rentarlo -->
+                <p:commandButton update="formAlquiler" class="Button" value="Consultar Costo" actionListener="#{Cliente.consultarCostoAlquiler(cod.value, dias.value)}"/>
+                <!-- Toca hacer consultar la multa antes de rentarlo -->
                 <p:commandButton update="formAlquiler" class="Button" value="Rentar" actionListener="#{Cliente.registrarAlquilerCliente()}" action="#{navigationController.paginaCliente()}"/>
                 <p:outputLabel value="#{Cliente.costo}"/>
             </h:panelGrid>
