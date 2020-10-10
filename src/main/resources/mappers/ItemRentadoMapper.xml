@@ -49,4 +49,5 @@
         LEFT JOIN VI_TIPOITEM AS ti ON i.TIPOITEM_id=ti.id
         WHERE ir.ITEMS_id=#{idit}
     </select>
+    
 </mapper>
