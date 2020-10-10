@@ -15,6 +15,8 @@ import edu.eci.cvds.samples.entities.TipoItem;
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquiler;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,7 +87,20 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public long consultarMultaAlquiler(int iditem, Date fechaDevolucion) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           ItemRentado item=itemRentadoDAO.consultarItemRentado(iditem);
+           
+           LocalDate fechaMinimaEntrega=item.getFechafinrenta().toLocalDate();
+           LocalDate fechaEntrega=fechaDevolucion.toLocalDate();
+           long retraso = ChronoUnit.DAYS.between(fechaMinimaEntrega, fechaEntrega);
+           if(retraso<0){
+               retraso=0;
+           }
+           return retraso*5000;
+           
+       }catch (PersistenceException ex){
+           throw new ExcepcionServiciosAlquiler("Error a consultar la multa, "+iditem,ex);
+       }
    }
 
    @Override
@@ -108,7 +123,13 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           clienteDAO.agregarItemRentadoACliente(docu,item.getId(), date, Date.valueOf(date.toLocalDate().plusDays(numdias)));
+           
+       }catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error al registrar item -" +docu,ex);
+
+       }
    }
 
    @Override
@@ -122,7 +143,24 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+        try{
+           List<Item> itemsDisponibles = itemDAO.consultarItemsDisponibles();
+           Item item = itemDAO.load(iditem);
+           boolean re=false;
+           for(Item i: itemsDisponibles){
+               if(i.getId()==iditem){
+                   re=true;
+               }
+           }
+           if(!re){
+               throw new ExcepcionServiciosAlquiler("Item no disponible " +iditem);
+           }else{
+               return item.getTarifaxDia()*numdias;
+           }
+               
+        }catch(PersistenceException ex){
+            throw new ExcepcionServiciosAlquiler("Error en costo de " + iditem ,ex);
+        }  
    }
 
    @Override

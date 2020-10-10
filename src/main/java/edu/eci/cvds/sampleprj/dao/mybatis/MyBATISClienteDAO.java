@@ -56,7 +56,7 @@ public class MyBATISClienteDAO implements ClienteDAO{
         try{
             ClienteMapper.agregarItemRentadoACliente(id, idit, fechainicio, fechafin);
         }catch(org.apache.ibatis.exceptions.PersistenceException e){
-             throw new PersistenceException("Error al rentar el item",e);
+             throw new PersistenceException("Error rentado item",e);
         }
     }
 }

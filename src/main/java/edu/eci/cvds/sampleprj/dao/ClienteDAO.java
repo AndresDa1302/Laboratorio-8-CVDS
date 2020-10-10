@@ -7,6 +7,7 @@ package edu.eci.cvds.sampleprj.dao;
 
 import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
 import edu.eci.cvds.samples.entities.Cliente;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -19,4 +20,6 @@ public interface ClienteDAO {
    public Cliente load(int doc) throws PersistenceException;
    
    public List<Cliente> consultarClientes() throws PersistenceException;
+   
+   public void agregarItemRentadoACliente(long id, int idit, Date fechainicio, Date fechafin)throws PersistenceException; 
 }
