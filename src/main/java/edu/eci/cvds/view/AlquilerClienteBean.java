@@ -30,7 +30,6 @@ public class AlquilerClienteBean extends BasePageBean{
             
         }catch(ExcepcionServiciosAlquiler e){
         }
-        
     }
     
     public void registrarCliente(String nombre, long documento, String telefono, String direccion, String email){
