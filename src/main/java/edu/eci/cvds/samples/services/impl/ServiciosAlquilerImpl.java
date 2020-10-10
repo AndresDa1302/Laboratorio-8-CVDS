@@ -5,7 +5,7 @@ import com.google.inject.Singleton;
 import edu.eci.cvds.sampleprj.dao.ClienteDAO;
 import edu.eci.cvds.sampleprj.dao.ItemDAO;
 import edu.eci.cvds.sampleprj.dao.ItemRentadoDAO;
-import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.persistenceException.PersistenceException;
 import edu.eci.cvds.sampleprj.dao.TipoItemDAO;
 
 import edu.eci.cvds.samples.entities.Cliente;
@@ -18,8 +18,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 @Singleton
 public class ServiciosAlquilerImpl implements ServiciosAlquiler {

@@ -1,14 +1,13 @@
 package edu.eci.cvds.sampleprj.dao.mybatis;
 
-import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.persistenceException.PersistenceException;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
+
 import edu.eci.cvds.sampleprj.dao.ItemDAO;
-import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
+
 import edu.eci.cvds.samples.entities.Item;
 import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper;
-import edu.eci.cvds.samples.entities.TipoItem;
-import java.sql.SQLException;
+
 import java.util.List;
 import org.mybatis.guice.transactional.Transactional;
 

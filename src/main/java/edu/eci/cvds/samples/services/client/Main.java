@@ -6,14 +6,13 @@
 package edu.eci.cvds.samples.services.client;
 
 import edu.eci.cvds.samples.entities.Cliente;
-import edu.eci.cvds.samples.entities.Item;
-import edu.eci.cvds.samples.entities.TipoItem;
+
 import edu.eci.cvds.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquiler;
 import edu.eci.cvds.samples.services.ServiciosAlquilerFactory;
-import java.sql.Date;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 //import java.util.Date;
 
 /**

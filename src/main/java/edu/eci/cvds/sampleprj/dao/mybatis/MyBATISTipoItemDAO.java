@@ -6,7 +6,7 @@
 package edu.eci.cvds.sampleprj.dao.mybatis;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.persistenceException.PersistenceException;
 import edu.eci.cvds.sampleprj.dao.TipoItemDAO;
 import edu.eci.cvds.samples.entities.TipoItem;
 import edu.eci.cvds.sampleprj.dao.mybatis.mappers.TipoItemMapper;

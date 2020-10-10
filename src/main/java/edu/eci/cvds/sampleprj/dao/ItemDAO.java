@@ -1,7 +1,7 @@
 package edu.eci.cvds.sampleprj.dao;
 
 import edu.eci.cvds.samples.entities.Item;
-import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.persistenceException.PersistenceException;
 import java.util.List;
 
 public interface ItemDAO {

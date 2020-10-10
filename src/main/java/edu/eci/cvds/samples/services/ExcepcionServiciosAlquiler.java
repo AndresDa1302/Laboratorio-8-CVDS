@@ -1,6 +1,6 @@
 package edu.eci.cvds.samples.services;
 
-import edu.eci.cvds.sampleprj.dao.PersistenceException.PersistenceException;
+import edu.eci.cvds.sampleprj.dao.persistenceException.PersistenceException;
 
 public class ExcepcionServiciosAlquiler extends Exception {
 
