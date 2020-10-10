@@ -11,7 +11,7 @@ import javax.faces.bean.RequestScoped;
  *
  * @author Administrador
  */
-@ManagedBean(name = "navigationController")
+@ManagedBean(name = "navigationController", eager = true)
 @RequestScoped
 public class NavigationController {
     public String paginaAlquiler() {
